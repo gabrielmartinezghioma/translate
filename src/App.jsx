@@ -1,12 +1,16 @@
 import './App.css';
 import axios from 'axios';
 import {useState } from 'react';
+import apiKey from './apikey';
+
 
 function App() {
-  const apiKey = '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';
+  const {key} = apiKey();
+  const apiKeyOI = key;
   const [res, setRes] = useState('');
   const [textTranslate, setTextTranslate] = useState('');
-  const [isChange, setIsChange] = useState(true)
+  const [isChange, setIsChange] = useState(true);
+  
 
   const translateText = async () => {
     const response = await axios.post(
@@ -22,7 +26,7 @@ function App() {
       {
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${apiKey}`,
+          'Authorization': `Bearer ${apiKeyOI}`,
         },
       }
     );
