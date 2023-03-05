@@ -1,16 +1,12 @@
 import './App.css';
 import axios from 'axios';
 import {useState } from 'react';
-import apiKey from './apikey';
-
 
 function App() {
-  const {key} = apiKey();
-  const apiKeyOI = key;
+  const apiKey = import.meta.env.VITE_BACKEND_KEY;
   const [res, setRes] = useState('');
   const [textTranslate, setTextTranslate] = useState('');
-  const [isChange, setIsChange] = useState(true);
-  
+  const [isChange, setIsChange] = useState(true)
 
   const translateText = async () => {
     const response = await axios.post(
@@ -26,7 +22,7 @@ function App() {
       {
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${apiKeyOI}`,
+          'Authorization': `Bearer ${apiKey}`,
         },
       }
     );

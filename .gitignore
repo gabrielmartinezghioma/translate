@@ -25,6 +25,5 @@ dist-ssr
 
 
 #APIKEY
-apikey.js
-
+.env.local
 
