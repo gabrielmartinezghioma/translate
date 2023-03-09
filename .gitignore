@@ -25,5 +25,4 @@ dist-ssr
 
 
 #APIKEY
-.env.local
 .env
